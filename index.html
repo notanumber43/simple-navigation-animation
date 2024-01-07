@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#">
+          <div class="bar"></div>
+          <div class="mask1">
+            <div class="item-container">
+              <h1 class="itemA">2019 YO-YO Contest Website</h1>
+              <h1 class="itemB">2019 YO-YO Contest Website</h1>
+            </div>
+          </div>
+          <div class="mask2">
+              <h3 class="date">UI/UX - FRONTEND 2020</h3>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <div class="bar"></div>
+          <div class="mask1">
+            <div class="item-container">
+              <h1 class="itemA">SamAsh Guitars</h1>
+              <h1 class="itemB">SamAsh Guitars</h1>
+            </div>
+          </div>
+          <div class="mask2">
+              <h3 class="date">UI/UX - FRONTEND 2020</h3>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <div class="bar"></div>
+          <div class="mask1">
+            <div class="item-container">
+              <h1 class="itemA">EastWest SoundLine</h1>
+              <h1 class="itemB">EastWest SoundLine</h1>
+            </div>
+          </div>
+          <div class="mask2">
+              <h3 class="date">UI/UX - FRONTEND 2020</h3>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <div class="bar"></div>
+          <div class="mask1">
+            <div class="item-container">
+              <h1 class="itemA">NextPollution</h1>
+              <h1 class="itemB">NextPollution</h1>
+            </div>
+          </div>
+          <div class="mask2">
+              <h3 class="date">UI/UX - FRONTEND 2020</h3>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+
+    const links =  gsap.utils.toArray('a')
+
+    links.forEach(link => {
+      const linkTl = gsap.timeline({ defaults: {
+        duration: .6,
+        ease: 'power4.inOut'
+      }})
+
+      const bar = link.querySelector('.bar');
+      const itemContainer = link.querySelector('.item-container');
+      const date = link.querySelector('.date');
+
+      linkTl
+        .to(itemContainer, {
+          transform: 'translateY(-50%)'
+        })
+        .to(bar, {
+          scaleX: 1,
+        }, '<')
+        .to(date, {
+          transform: 'translateY(0)',
+        }, '<')
+      linkTl.pause();
+
+      link.addEventListener('mouseenter', () => {
+        linkTl.play()
+      })
+
+      link.addEventListener('mouseleave', () => {
+        linkTl.reverse()
+      })
+
+    })
+
+  </script>
+</body>
+</html>
